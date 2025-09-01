@@ -1,1 +1,13 @@
-name: Node CInon: [push, pull_request]njobs:n test:n runs-on: ubuntu-latestn steps:n - uses: actions/checkout@v4n - uses: actions/setup-node@v4n with:n node-version: 22n cache: npmn - run: npm cin - run: npm test
+name: Node CI
+on: [push, pull_request]
+jobs:
+ test:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/checkout@v4
+ - uses: actions/setup-node@v4
+ with:
+ node-version: 22
+ cache: npm
+ - run: npm ci
+ - run: npm test
