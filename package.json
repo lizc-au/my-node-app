@@ -8,7 +8,9 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "setup": "npm ci && npm test",
+    "check": "npm run lint && npm test"
   },
   "keywords": [],
   "author": "",
