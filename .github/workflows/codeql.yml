@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: '0 1 * * 1'  # Mondays 09:00 Perth (01:00 UTC)
+    - cron: '0 1 * * 1'
 jobs:
   analyze:
     name: Analyze
@@ -20,6 +20,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: github/codeql-action/init@v3
         with:
-          languages: jqscript
+          languages: javascript
       - uses: github/codeql-action/autobuild@v3
       - uses: github/codeql-action/analyze@v3
