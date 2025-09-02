@@ -10,7 +10,12 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "setup": "npm ci && npm test",
-    "check": "npm run lint && npm test"
+    "check": "npm run lint && npm test",
+    "release:patch": "powershell -NoProfile -Command \"npm version patch -m 'Release v%s'; git push --follow-tags; $v=(Get-Content package.json | ConvertFrom-Json).version; $tag='v'+$v; gh release create $tag -t $tag -n 'Automated patch release' --verify-tag\"",
+    "release:minor": "powershell -NoProfile -Command \"npm version minor -m 'Release v%s'; git push --follow-tags; $v=(Get-Content package.json | ConvertFrom-Json).version; $tag='v'+$v; gh release create $tag -t $tag -n 'Automated minor release' --verify-tag\"",
+    "release:major": "powershell -NoProfile -Command \"npm version major -m 'Release v%s'; git push --follow-tags; $v=(Get-Content package.json | ConvertFrom-Json).version; $tag='v'+$v; gh release create $tag -t $tag -n 'Automated major release' --verify-tag\"",
+    "release:rc": "powershell -NoProfile -Command \"npm version prerelease --preid rc -m 'Prerelease v%s'; git push --follow-tags; $v=(Get-Content package.json | ConvertFrom-Json).version; $tag='v'+$v; gh release create $tag -t $tag -n 'Automated prerelease' --verify-tag --prerelease\"",
+    "release:final": "powershell -NoProfile -Command \"$v=(Get-Content package.json -Raw | ConvertFrom-Json).version; if($v -match '^(\\d+\\.\\d+\\.\\d+)'){ $stable=$Matches[1]; npm version $stable -m 'Release v%s'; git push --follow-tags; gh release create v$stable -t v$stable -n 'Promote rc to stable' --verify-tag } else { Write-Error 'No prerelease version (x.y.z-*) found'; exit 1 }\""
   },
   "keywords": [],
   "author": "",
