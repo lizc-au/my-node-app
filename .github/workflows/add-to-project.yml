@@ -1,1 +1,1 @@
-name: add-to-project
+﻿name: Add items to Dev Workboardrnon:rn issues:rn types: [opened, reopened, labeled, unlabeled]rn pull_request:rn types: [opened, reopened, synchronize, labeled, unlabeled]rnpermissions:rn issues: writern pull-requests: writernjobs:rn add-to-project:rn runs-on: ubuntu-latestrn steps:rn - uses: actions/add-to-project@v0.6.1rn with:rn project-url: https://github.com/users/lizc-au/projects/2rn github-token: ${{ secrets.PROJECTS_TOKEN }}
