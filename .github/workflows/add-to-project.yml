@@ -1,9 +1,1 @@
-name: Add to Project (temporary placeholder)
-on:
-  workflow_dispatch:
-jobs:
-  noop:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Placeholder
-        run: echo "Temporarily disabled; will be replaced."
+name: Add items to Dev Workboardrnon:rn issues:rn types: [opened, reopened, transferred, labeled]rn pull_request:rn types: [opened, reopened, labeled]rnpermissions:rn issues: writern pull-requests: writernjobs:rn add-to-project:rn runs-on: ubuntu-latestrn steps:rn - uses: actions/add-to-project@v1.0.2rn with:rn project-url: https://github.com/users/lizc-au/projects/2rn github-token: ${{ secrets.PROJECTS_TOKEN }}
