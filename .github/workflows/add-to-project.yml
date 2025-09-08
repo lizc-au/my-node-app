@@ -2,8 +2,7 @@ name: Add items to Dev Workboard
 on:
   issues:
     types: [opened, reopened, transferred, labeled]
-  pull_request:
-    types: [opened, reopened, synchronize, labeled]
+ pull_request_target:types: [opened, reopened, synchronize, labeled]
 permissions:
   contents: read
 jobs:
@@ -14,4 +13,5 @@ jobs:
       with:
         project-url: https://github.com/users/lizc-au/projects/2
         github-token: ${{ secrets.PROJECTS_TOKEN }}
+
 
