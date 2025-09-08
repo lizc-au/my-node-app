@@ -1,17 +1,24 @@
 name: Add items to Dev Workboard
 on:
-  issues:
-    types: [opened, reopened, transferred, labeled]
- pull_request_target:types: [opened, reopened, synchronize, labeled]
+ issues:
+ types:
+ - opened
+ - reopened
+ - transferred
+ - labeled
+ pull_request_target:
+ types:
+ - opened
+ - reopened
+ - labeled
 permissions:
-  contents: read
+ issues: write
+ pull-requests: write
 jobs:
-  add-to-project:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/add-to-project@v1.0.2
-      with:
-        project-url: https://github.com/users/lizc-au/projects/2
-        github-token: ${{ secrets.PROJECTS_TOKEN }}
-
-
+ add-to-project:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/add-to-project@v1.0.2
+ with:
+ project-url: https://github.com/users/lizc-au/projects/2
+ github-token: ${{ secrets.PROJECTS_TOKEN }}
