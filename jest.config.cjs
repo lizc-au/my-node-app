@@ -1,1 +1,1 @@
-module.exports={ testEnvironment:'node', roots:['<rootDir>/src'] }
+module.exports = { testEnvironment: "node", roots: ["<rootDir>/src"] };
