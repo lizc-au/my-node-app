@@ -1,1 +1,17 @@
-const globals = require("globals"); module.exports = [{ ignores: ["coverage/**","**/coverage/**"] }, { files: ["**/*.js"], languageOptions: { ecmaVersion: 2022, sourceType: "commonjs", globals: { ...globals.node } }, rules: { "no-debugger": "off" } }, { files: ["src/**/*.test.js", "src/**/*.spec.js"], languageOptions: { globals: { ...globals.jest } } }];
+const globals = require("globals");
+module.exports = [
+  { ignores: ["coverage/**", "**/coverage/**"] },
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "commonjs",
+      globals: { ...globals.node },
+    },
+    rules: { "no-debugger": "off" },
+  },
+  {
+    files: ["src/**/*.test.js", "src/**/*.spec.js"],
+    languageOptions: { globals: { ...globals.jest } },
+  },
+];
