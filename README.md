@@ -12,3 +12,4 @@ POST /api/echo -> echoes JSON body
 [![Latest release](https://img.shields.io/github/v/release/lizc-au/my-node-app?include_prereleases&sort=semver)](https://github.com/lizc-au/my-node-app/releases)
 [![CodeQL](https://github.com/lizc-au/my-node-app/actions/workflows/codeql.yml/badge.svg)](https://github.com/lizc-au/my-node-app/actions/workflows/codeql.yml)
  <!-- ci-validate -->
+nProtection verify 2025-09-14T16:24:20
