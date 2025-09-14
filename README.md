@@ -13,3 +13,4 @@ POST /api/echo -> echoes JSON body
 [![CodeQL](https://github.com/lizc-au/my-node-app/actions/workflows/codeql.yml/badge.svg)](https://github.com/lizc-au/my-node-app/actions/workflows/codeql.yml)
  <!-- ci-validate -->
  <!-- ruleset-smoke -->
+nTrigger CI 2025-09-14T15:00:37
