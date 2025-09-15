@@ -15,3 +15,4 @@ POST /api/echo -> echoes JSON body
 nProtection verify 2025-09-14T16:24:20
 nFinal protection verify 2025-09-14T16:35:42
 rnRuleset validation: 2025-09-15T20:08:13 AWST
+rn## Branch rulesrn- Required checks: CodeQL, buildrn- Strict up-to-date: ONrn- Do not require on create: ONrn- Ruleset JSON: [docs/ruleset-main.json](./docs/ruleset-main.json)rn
