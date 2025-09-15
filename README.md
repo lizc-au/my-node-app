@@ -14,3 +14,4 @@ POST /api/echo -> echoes JSON body
  <!-- ci-validate -->
 nProtection verify 2025-09-14T16:24:20
 nFinal protection verify 2025-09-14T16:35:42
+rnRuleset validation: 2025-09-15T20:08:13 AWST
