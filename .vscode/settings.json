@@ -4,12 +4,8 @@
   "files.eol": "rn",
   "files.insertFinalNewline": true,
   "javascript.suggest.completeFunctionCalls": true,
-  "eslint.validate": [
-    "javascript"
-  ],
-  "eslint.probe": [
-    "javascript"
-  ],
+  "eslint.validate": ["javascript"],
+  "eslint.probe": ["javascript"],
   "eslint.alwaysShowStatus": true,
   "eslint.workingDirectories": [
     {
