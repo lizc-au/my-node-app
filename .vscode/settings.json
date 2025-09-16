@@ -22,5 +22,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true
-  }
+  },
+  "security.workspace.trust.enabled": true,
+  "extensions.showRecommendationsOnlyOnDemand": true,
+  "security.workspace.trust.startupPrompt": "never"
 }
