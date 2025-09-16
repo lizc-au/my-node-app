@@ -18,5 +18,9 @@
   ],
   "prettier.useEditorConfig": true,
   "prettier.endOfLine": "crlf",
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  }
 }
