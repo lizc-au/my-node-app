@@ -22,5 +22,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true
-  }
+  },
+  "git.autofetch": true,
+  "problems.autoReveal": false,
+  "task.autoDetect": "off",
+  "npm.autoDetect": "off"
 }
