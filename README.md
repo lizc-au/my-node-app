@@ -18,3 +18,4 @@ nProtection verify 2025-09-14T16:24:20
 nFinal protection verify 2025-09-14T16:35:42
 rnRuleset validation: 2025-09-15T20:08:13 AWST
 rn## Branch rulesrn- Required checks: CodeQL, buildrn- Strict up-to-date: ONrn- Do not require on create: ONrn- Ruleset JSON: [docs/ruleset-main.json](./docs/ruleset-main.json)rn
+rn## Create a new repo from this templaternrn### Using gh CLIrnrnPublic:rn`powershellrngh repo create <NEW-REPO> --template lizc-au/my-node-app --publicrn`rnrnPrivate:rn`powershellrngh repo create <NEW-REPO> --template lizc-au/my-node-app --privatern`rnrnThen clone:rn`powershellrngh repo clone lizc-au/<NEW-REPO>rncd <NEW-REPO>rn`rnrn### Via web UIrn[Use this template](https://github.com/lizc-au/my-node-app/generate)
