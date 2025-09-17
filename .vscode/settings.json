@@ -16,8 +16,8 @@
   "prettier.endOfLine": "crlf",
   "git.confirmSync": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
   },
   "git.autofetch": true,
   "problems.autoReveal": false,
