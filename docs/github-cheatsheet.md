@@ -45,3 +45,5 @@
 ## Re-run GitHub Actions (gh run)rnrn1. gh run list --limit 10rn2. gh run view <id> --logrn3. gh run rerun <id>
 
 ## Checkout PR without gh (raw git)rnrn1. git fetch origin pull/<number>/head:pr-<number>rn2. git switch pr-<number>rn3. git branch -D pr-<number> # cleanup
+
+## Rename branch (local + remote)rnrn1. git branch -m old-name new-namern2. git push origin -u new-namern3. git push origin --delete old-name
