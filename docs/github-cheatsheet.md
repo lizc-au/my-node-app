@@ -31,3 +31,5 @@
 ## Create draft PR / mark ready (gh)rnrn1. gh pr create --base main --draft --title "title" --body "desc"rn2. gh pr ready <number>rn3. gh pr ready <number> --undo
 
 ## Edit PR title/body/base (gh)rnrn1. gh pr edit <number> --title "New title"rn2. gh pr edit <number> --body "Updated description..."rn3. gh pr edit <number> --base main
+
+## List & view PRs (gh)rnrn1. gh pr listrn2. gh pr view <number>rn3. gh pr view <number> --webrn4. gh pr status
