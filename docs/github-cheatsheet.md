@@ -59,3 +59,4 @@
 ## Safe sync: fetch --prune + pull --ff-onlyrnrn1. git fetch origin --prune # update remotes & clean stale origin/\*rn2. git pull --ff-only # fast-forward only; fail if diverged
 
 . git restore <file> # discard unstaged changesrn2. git restore --staged <file> # unstage, keep filern3. git restore --source=HEAD~1 <file> # from previous commit
+. git log --onelinern2. git revert <sha>rn3. git pushrn4. Merge commit: git revert -m 1 <merge-sha>
