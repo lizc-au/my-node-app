@@ -37,3 +37,5 @@
 ## Diff a PR (gh)rnrn1. gh pr diff <number>rn2. gh pr diff <number> --name-onlyrn3. gh pr diff <number> --color=always > pr.diff # save
 
 ## Enable auto-merge for PR (gh)rnrn1. gh pr merge <number> --auto --squashrn2. gh pr merge <number> --disable-auto
+
+## Close/Reopen PR (gh)rnrn1. gh pr close <number> --delete-branchrn2. gh pr reopen <number>
