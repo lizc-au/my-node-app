@@ -199,3 +199,5 @@ Note: if push to main is blocked by rules, move your local commit to a branch an
 
 - **The Git reflog** is a reference log that stores all the changes that have been made to the HEAD pointer in a local Git repository. Most recent entry is entry number 0. The reflog allows for recovering from mistakes or unintended changes to the repository.
   > - `git reflog` # to view recent commits, checkouts, and branch updates. Use the commit hash returned to restore commits if needed.
+
+## Find commit that introduced a bug (git bisect)rnrn1. git bisect startrn2. git bisect bad HEADrn3. git bisect good <known-good-sha>rn4. Repeat: build/test → git bisect good | git bisect badrn5. (optional) git bisect run "npm run test:ci"rn6. git bisect reset
