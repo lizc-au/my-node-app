@@ -17,3 +17,5 @@
 ## Merge PR (squash + delete, non-interactive)rnrn1. echo y | gh pr merge <number> --squash --delete-branch
 
 ## Move accidental main commit to PR branchrnrnNote: if push to main is blocked by rules, move your local commit to a branch and open a PR.rnrn1. git switch -c fix/short-descrn2. git push -u origin HEADrn3. gh pr create --fill --base main
+
+## Update PR branch with latest main (merge)rnrn1. git fetch origin --prunern2. git switch <branch>rn3. git merge origin/mainrn4. npm testrn5. git push
