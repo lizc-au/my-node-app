@@ -2,63 +2,200 @@
 
 ## PR workflow (CLI quick steps)
 
-1. git switch -c feature/short-desc
-2. git add -A
-3. git commit -m "feat: short desc"
-4. git push -u origin HEAD
-5. gh pr create --fill --base main
-6. gh pr checks --watch
-7. gh pr merge --squash --delete-branch
+1. `git switch -c feature/short-desc`
+2. `git add -A`
+3. `git commit -m "feat: short desc"`
+4. `git push -u origin HEAD`
+5. `gh pr create --fill --base main`
+6. `gh pr checks --watch`
+7. `gh pr merge --squash --delete-branch`
 
-## Sync local main to origin/main (safe reset)rnrnNote: discards local commits on main; move any work to a branch first.rnrn1. git switch mainrn2. git fetch origin --prunern3. git reset --hard origin/main
+## Sync local main to origin/main (safe reset)
 
-## Watch PR checks (gh)rnrn1. gh pr checks --watchrn2. gh pr checks <number> --watch
+Note: discards local commits on main; move any work to a branch first.
 
-## Merge PR (squash + delete, non-interactive)rnrn1. echo y | gh pr merge <number> --squash --delete-branch
+1. `git switch main`
+2. `git fetch origin --prune`
+3. `git reset --hard origin/main`
 
-## Move accidental main commit to PR branchrnrnNote: if push to main is blocked by rules, move your local commit to a branch and open a PR.rnrn1. git switch -c fix/short-descrn2. git push -u origin HEADrn3. gh pr create --fill --base main
+## Watch PR checks (gh)
 
-## Update PR branch with latest main (merge)rnrn1. git fetch origin --prunern2. git switch <branch>rn3. git merge origin/mainrn4. npm testrn5. git push
+1. `gh pr checks --watch`
+2. `gh pr checks <number> --watch`
 
-## Update PR branch with latest main (rebase)rnrn1. git fetch origin --prunern2. git switch <branch>rn3. git rebase origin/mainrn4. Resolve conflicts → git add <file> ; git rebase --continuern5. git push --force-with-lease
+## Merge PR (squash + delete, non-interactive)
 
-## Add reviewers/assignees/labels to PR (gh)rnrn1. gh pr edit <number> --add-reviewer <user1>,<user2>rn2. gh pr edit <number> --add-assignee <user1>,<user2>rn3. gh pr edit <number> --add-label "label-one","label two"
+1. `echo y | gh pr merge <number> --squash --delete-branch`
 
-## Review a PR (approve/comment/request changes)rnrn1. gh pr review <number> --approve --body "LGTM"rn2. gh pr review <number> --comment --body "Nit: ..."rn3. gh pr review <number> --request-changes --body "Please ..."
+## Move accidental main commit to PR branch
 
-## Checkout a PR locally (gh)rnrn1. gh pr checkout <number>rn2. gh pr checkout <url>rn3. git switch main # back to main
+Note: if push to main is blocked by rules, move your local commit to a branch and open a PR.
 
-## Create draft PR / mark ready (gh)rnrn1. gh pr create --base main --draft --title "title" --body "desc"rn2. gh pr ready <number>rn3. gh pr ready <number> --undo
+1. `git switch -c fix/short-desc`
+2. `git push -u origin HEAD`
+3. `gh pr create --fill --base main`
 
-## Edit PR title/body/base (gh)rnrn1. gh pr edit <number> --title "New title"rn2. gh pr edit <number> --body "Updated description..."rn3. gh pr edit <number> --base main
+## Update PR branch with latest main (merge)
 
-## List & view PRs (gh)rnrn1. gh pr listrn2. gh pr view <number>rn3. gh pr view <number> --webrn4. gh pr status
+1. `git fetch origin --prune`
+2. `git switch <branch>`
+3. `git merge origin/main`
+4. `npm test`
+5. `git push`
 
-## Diff a PR (gh)rnrn1. gh pr diff <number>rn2. gh pr diff <number> --name-onlyrn3. gh pr diff <number> --color=always > pr.diff # save
+## Update PR branch with latest main (rebase)
 
-## Enable auto-merge for PR (gh)rnrn1. gh pr merge <number> --auto --squashrn2. gh pr merge <number> --disable-auto
+1. `git fetch origin --prune`
+2. `git switch <branch>`
+3. `git rebase origin/main`
+4. `Resolve conflicts → git add <file> ; git rebase --continue`
+5. `git push --force-with-lease`
 
-## Close/Reopen PR (gh)rnrn1. gh pr close <number> --delete-branchrn2. gh pr reopen <number>
+## Add reviewers/assignees/labels to PR (gh)
 
-## Auto-close issues from PR (Fixes #)rnrn1. In PR body: Fixes #123 (also: Closes, Resolves)rn2. Multiple: Fixes #123, closes #124rn3. CLI: gh pr edit <number> --body "Fixes #123"
+1. `gh pr edit <number> --add-reviewer <user1>,<user2>`
+2. `gh pr edit <number> --add-assignee <user1>,<user2>`
+3. `gh pr edit <number> --add-label "label-one","label two"`
 
-## Re-run GitHub Actions (gh run)rnrn1. gh run list --limit 10rn2. gh run view <id> --logrn3. gh run rerun <id>
+## Review a PR (approve/comment/request changes)
 
-## Checkout PR without gh (raw git)rnrn1. git fetch origin pull/<number>/head:pr-<number>rn2. git switch pr-<number>rn3. git branch -D pr-<number> # cleanup
+1. `gh pr review <number> --approve --body "LGTM"`
+2. `gh pr review <number> --comment --body "Nit: ..."`
+3. `gh pr review <number> --request-changes --body "Please ..."`
 
-## Rename branch (local + remote)rnrn1. git branch -m old-name new-namern2. git push origin -u new-namern3. git push origin --delete old-name
+## Checkout a PR locally (gh)
 
-## Amend last commit (message or files)rnrn1. git commit --amend -m "New message"rn2. git add <file> ; git commit --amend --no-editrn3. git push --force-with-lease
+- `gh pr checkout <number>`
+- `gh pr checkout <url>`
+- `git switch main` # back to main
 
-## Undo last commit (soft/mixed/hard)rnrn1. git reset --soft HEAD^ # keep stagedrn2. git reset HEAD^ # unstage, keep filesrn3. git reset --hard HEAD^ # discard changes
+## Create draft PR / mark ready (gh)
 
-## Cancel GitHub Actions run (gh run cancel)rnrn1. gh run list --limit 10rn2. gh run cancel <id>rn3. gh run view <id> --log # verify
+1. `gh pr create --base main --draft --title "title" --body "desc"`
+2. `gh pr ready <number>`
+3. `gh pr ready <number> --undo`
 
-## Create PR with auto-fill (gh)rnrn1. gh pr create --base main --fillrn2. gh pr create --base main --fill --draftrn3. gh pr create --fill --web # open in browser
+## Edit PR title/body/base (gh)
 
-## Safe sync: fetch --prune + pull --ff-onlyrnrn1. git fetch origin --prune # update remotes & clean stale origin/\*rn2. git pull --ff-only # fast-forward only; fail if diverged
+- `gh pr edit <number> --title "New title"`
+- `gh pr edit <number> --body "Updated description..."`
+- `gh pr edit <number> --base main`
 
-. git restore <file> # discard unstaged changesrn2. git restore --staged <file> # unstage, keep filern3. git restore --source=HEAD~1 <file> # from previous commit
-. git log --onelinern2. git revert <sha>rn3. git pushrn4. Merge commit: git revert -m 1 <merge-sha>
-. git cherry-pick <sha>rn2. git cherry-pick <sha1> <sha2>rn3. Conflicts → fix; git add <file>; git cherry-pick --continue (abort: git cherry-pick --abort)
-. git rebase -i HEAD~N # pick/squash/fixuprn2. Resolve → git add <file>; git rebase --continuern3. git push --force-with-lease
+## List & view PRs (gh)
+
+- `gh pr list`
+- `gh pr view <number>`
+- `gh pr view <number> --web`
+- `gh pr status`
+
+## Diff a PR (gh)
+
+- `gh pr diff <number>`
+- `gh pr diff <number> --name-only`
+- `gh pr diff <number> --color=always > pr.diff` # save
+
+## Enable auto-merge for PR (gh)
+
+- `gh pr merge <number> --auto --squash`
+- `gh pr merge <number> --disable-auto`
+
+## Close/Reopen PR (gh)
+
+1. `gh pr close <number> --delete-branch`
+2. `gh pr reopen <number>`
+
+## Auto-close issues from PR (linking PR to Issues)
+
+> [Full GitHub linking instructions here](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
+
+1. Link in PR body → Type KEYWORD #ISSUE-NUMBER e.g. FIXES #nn (also: CLOSES or RESOLVES)
+2. Multiple links → Type Fixes #nn, Closes #nn
+3. CLI → `gh pr edit <pr-number> --body "Fixes #nn"`
+
+## Re-run GitHub Actions (gh run)
+
+1. `gh run list --limit 10`
+2. `gh run view <id> --log`
+3. `gh run rerun <id>`
+
+## Checkout PR without gh (raw git)
+
+1. `git fetch origin pull/<number>/head:pr-<number>`
+2. `git switch pr-<number>`
+3. `git branch -D pr-<number>` # cleanup
+
+## Rename branch (local + remote)
+
+1. `git branch -m old-name new-name`
+2. `git push origin -u new-name`
+3. `git push origin --delete old-name`
+
+## Amend last commit (message or files)
+
+1. `git commit --amend -m "New message"`
+2. `git add <file> ; git commit --amend --no-edit`
+3. `git push --force-with-lease`
+
+## Undo last commit (soft/mixed/hard)
+
+- `git reset --soft HEAD^` # keep staged
+- `git reset HEAD^` # unstage, keep files
+- `git reset --hard HEAD^` # discard changes
+
+## Cancel GitHub Actions run (gh run cancel)
+
+- `gh run list --limit 10`
+- `gh run cancel <id>`
+- `gh run view <id> --log` # verify
+
+## Create PR with auto-fill (gh)
+
+- `gh pr create --base main --fill`
+- `gh pr create --base main --fill --draft`
+- `gh pr create --fill --web` # open in browser
+
+## Safe sync: fetch --prune + pull --ff-only
+
+1. `git fetch origin --prune` # update remotes & clean stale origin
+2. `git pull --ff-only` # fast-forward only; fail if diverged
+
+## Restore file(s)
+
+1. `git restore <file>` # discard unstaged changes
+2. `git restore --staged <file>` # unstage, keep file
+3. `git restore --source=HEAD~1 <file>` # from previous commit
+
+## Troubleshoot
+
+1. `git log --oneline`
+2. `git revert <sha>`
+3. `git push`
+4. Merge commit → `git revert -m 1 <merge-sha>`
+
+## Cross branch commits
+
+1. `git cherry-pick <sha>`
+2. `git cherry-pick <sha1> <sha2>`
+3. Conflicts → `fix; git add <file>; git cherry-pick --continue`
+4. Abort → `git cherry-pick --abort`
+
+## Interactive rebase
+
+1. `git rebase -i HEAD~N` # pick / squash / fixup
+2. Resolve → `git add <file>; git rebase --continue`
+3. `git push --force-with-lease` # force push changes, but only if the remote repository is in the same state as my last fetch
+
+## Notes
+
+- **HEAD~N** is a shortcut that refers to the commit that took place N before the most recent commit. (i.e. **HEAD~** is the state of the branch one commit before the HEAD commit.) The HEAD normally points to the branch user is currently in.
+
+> - `git show HEAD~N`
+> - `git diff HEAD~ HEAD~~` # HEAD~~ is the same as HEAD~2
+> - `cat .git/HEAD` # to verify the HEAD is pointing to the expected branch (can be detached to point to a particular commit)
+
+- **HEAD^N** - e.g. **HEAD^1** would reference the first parent of the HEAD commit, **HEAD^2** would reference the second parent of the HEAD commit (if it exists), and so on.
+
+- **HEAD@{N}** is a reference to a specific state of the HEAD pointer in the Git reflog.
+
+- **The Git reflog** is a reference log that stores all the changes that have been made to the HEAD pointer in a local Git repository. Most recent entry is entry number 0. The reflog allows for recovering from mistakes or unintended changes to the repository.
+  > - `git reflog` # to view recent commits, checkouts, and branch updates. Use the commit hash returned to restore commits if needed.
