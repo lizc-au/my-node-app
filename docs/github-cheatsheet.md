@@ -33,3 +33,5 @@
 ## Edit PR title/body/base (gh)rnrn1. gh pr edit <number> --title "New title"rn2. gh pr edit <number> --body "Updated description..."rn3. gh pr edit <number> --base main
 
 ## List & view PRs (gh)rnrn1. gh pr listrn2. gh pr view <number>rn3. gh pr view <number> --webrn4. gh pr status
+
+## Diff a PR (gh)rnrn1. gh pr diff <number>rn2. gh pr diff <number> --name-onlyrn3. gh pr diff <number> --color=always > pr.diff # save
