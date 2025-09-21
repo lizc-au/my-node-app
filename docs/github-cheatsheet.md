@@ -53,3 +53,5 @@
 ## Undo last commit (soft/mixed/hard)rnrn1. git reset --soft HEAD^ # keep stagedrn2. git reset HEAD^ # unstage, keep filesrn3. git reset --hard HEAD^ # discard changes
 
 ## Cancel GitHub Actions run (gh run cancel)rnrn1. gh run list --limit 10rn2. gh run cancel <id>rn3. gh run view <id> --log # verify
+
+## Create PR with auto-fill (gh)rnrn1. gh pr create --base main --fillrn2. gh pr create --base main --fill --draftrn3. gh pr create --fill --web # open in browser
