@@ -27,3 +27,5 @@
 ## Review a PR (approve/comment/request changes)rnrn1. gh pr review <number> --approve --body "LGTM"rn2. gh pr review <number> --comment --body "Nit: ..."rn3. gh pr review <number> --request-changes --body "Please ..."
 
 ## Checkout a PR locally (gh)rnrn1. gh pr checkout <number>rn2. gh pr checkout <url>rn3. git switch main # back to main
+
+## Create draft PR / mark ready (gh)rnrn1. gh pr create --base main --draft --title "title" --body "desc"rn2. gh pr ready <number>rn3. gh pr ready <number> --undo
