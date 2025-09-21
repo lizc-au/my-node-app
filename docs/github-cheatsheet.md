@@ -13,3 +13,5 @@
 ## Sync local main to origin/main (safe reset)rnrnNote: discards local commits on main; move any work to a branch first.rnrn1. git switch mainrn2. git fetch origin --prunern3. git reset --hard origin/main
 
 ## Watch PR checks (gh)rnrn1. gh pr checks --watchrn2. gh pr checks <number> --watch
+
+## Merge PR (squash + delete, non-interactive)rnrn1. echo y | gh pr merge <number> --squash --delete-branch
