@@ -200,6 +200,17 @@ Note: if push to main is blocked by rules, move your local commit to a branch an
 - **The Git reflog** is a reference log that stores all the changes that have been made to the HEAD pointer in a local Git repository. Most recent entry is entry number 0. The reflog allows for recovering from mistakes or unintended changes to the repository.
   > - `git reflog` # to view recent commits, checkouts, and branch updates. Use the commit hash returned to restore commits if needed.
 
-## Find commit that introduced a bug (git bisect)rnrn1. git bisect startrn2. git bisect bad HEADrn3. git bisect good <known-good-sha>rn4. Repeat: build/test → git bisect good | git bisect badrn5. (optional) git bisect run "npm run test:ci"rn6. git bisect reset
+## Find commit that introduced a bug (git bisect)
 
-## Tag a release (git tag)rnrn- git tag -a vX.Y.Z -m "Release vX.Y.Z"rn- git push origin vX.Y.Zrn- git push origin --tags # push all tags
+1. `git bisect start`
+2. `git bisect bad HEAD`
+3. `git bisect good <known-good-sha>`
+4. Repeat: build/test → `git bisect good | git bisect bad`
+5. (optional) `git bisect run "npm run test:ci"`
+6. `git bisect reset`
+
+## Tag a release (git tag)
+
+- `git tag -a vX.Y.Z -m "Release vX.Y.Z"`
+- `git push origin vX.Y.Z`
+- `git push origin --tags` # push all tags
