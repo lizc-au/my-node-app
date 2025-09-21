@@ -51,3 +51,5 @@
 ## Amend last commit (message or files)rnrn1. git commit --amend -m "New message"rn2. git add <file> ; git commit --amend --no-editrn3. git push --force-with-lease
 
 ## Undo last commit (soft/mixed/hard)rnrn1. git reset --soft HEAD^ # keep stagedrn2. git reset HEAD^ # unstage, keep filesrn3. git reset --hard HEAD^ # discard changes
+
+## Cancel GitHub Actions run (gh run cancel)rnrn1. gh run list --limit 10rn2. gh run cancel <id>rn3. gh run view <id> --log # verify
