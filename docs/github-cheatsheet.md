@@ -29,3 +29,5 @@
 ## Checkout a PR locally (gh)rnrn1. gh pr checkout <number>rn2. gh pr checkout <url>rn3. git switch main # back to main
 
 ## Create draft PR / mark ready (gh)rnrn1. gh pr create --base main --draft --title "title" --body "desc"rn2. gh pr ready <number>rn3. gh pr ready <number> --undo
+
+## Edit PR title/body/base (gh)rnrn1. gh pr edit <number> --title "New title"rn2. gh pr edit <number> --body "Updated description..."rn3. gh pr edit <number> --base main
