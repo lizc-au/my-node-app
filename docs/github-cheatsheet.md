@@ -55,3 +55,8 @@
 ## Cancel GitHub Actions run (gh run cancel)rnrn1. gh run list --limit 10rn2. gh run cancel <id>rn3. gh run view <id> --log # verify
 
 ## Create PR with auto-fill (gh)rnrn1. gh pr create --base main --fillrn2. gh pr create --base main --fill --draftrn3. gh pr create --fill --web # open in browser
+
+## Safe sync: fetch --prune + pull --ff-onlyrnrn1. git fetch origin --prune # update remotes & clean stale origin/\*rn2. git pull --ff-only # fast-forward only; fail if diverged
+
+. git restore <file> # discard unstaged changesrn2. git restore --staged <file> # unstage, keep filern3. git restore --source=HEAD~1 <file> # from previous commit
+. git log --onelinern2. git revert <sha>rn3. git pushrn4. Merge commit: git revert -m 1 <merge-sha>
