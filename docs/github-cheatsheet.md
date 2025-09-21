@@ -37,3 +37,7 @@
 ## Diff a PR (gh)rnrn1. gh pr diff <number>rn2. gh pr diff <number> --name-onlyrn3. gh pr diff <number> --color=always > pr.diff # save
 
 ## Enable auto-merge for PR (gh)rnrn1. gh pr merge <number> --auto --squashrn2. gh pr merge <number> --disable-auto
+
+## Close/Reopen PR (gh)rnrn1. gh pr close <number> --delete-branchrn2. gh pr reopen <number>
+
+## Auto-close issues from PR (Fixes #)rnrn1. In PR body: Fixes #123 (also: Closes, Resolves)rn2. Multiple: Fixes #123, closes #124rn3. CLI: gh pr edit <number> --body "Fixes #123"
