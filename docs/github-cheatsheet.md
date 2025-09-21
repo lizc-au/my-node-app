@@ -35,3 +35,5 @@
 ## List & view PRs (gh)rnrn1. gh pr listrn2. gh pr view <number>rn3. gh pr view <number> --webrn4. gh pr status
 
 ## Diff a PR (gh)rnrn1. gh pr diff <number>rn2. gh pr diff <number> --name-onlyrn3. gh pr diff <number> --color=always > pr.diff # save
+
+## Enable auto-merge for PR (gh)rnrn1. gh pr merge <number> --auto --squashrn2. gh pr merge <number> --disable-auto
