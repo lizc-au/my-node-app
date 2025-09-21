@@ -43,3 +43,5 @@
 ## Auto-close issues from PR (Fixes #)rnrn1. In PR body: Fixes #123 (also: Closes, Resolves)rn2. Multiple: Fixes #123, closes #124rn3. CLI: gh pr edit <number> --body "Fixes #123"
 
 ## Re-run GitHub Actions (gh run)rnrn1. gh run list --limit 10rn2. gh run view <id> --logrn3. gh run rerun <id>
+
+## Checkout PR without gh (raw git)rnrn1. git fetch origin pull/<number>/head:pr-<number>rn2. git switch pr-<number>rn3. git branch -D pr-<number> # cleanup
