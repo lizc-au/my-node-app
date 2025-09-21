@@ -201,3 +201,5 @@ Note: if push to main is blocked by rules, move your local commit to a branch an
   > - `git reflog` # to view recent commits, checkouts, and branch updates. Use the commit hash returned to restore commits if needed.
 
 ## Find commit that introduced a bug (git bisect)rnrn1. git bisect startrn2. git bisect bad HEADrn3. git bisect good <known-good-sha>rn4. Repeat: build/test → git bisect good | git bisect badrn5. (optional) git bisect run "npm run test:ci"rn6. git bisect reset
+
+## Tag a release (git tag)rnrn- git tag -a vX.Y.Z -m "Release vX.Y.Z"rn- git push origin vX.Y.Zrn- git push origin --tags # push all tags
