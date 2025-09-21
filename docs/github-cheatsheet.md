@@ -60,3 +60,4 @@
 
 . git restore <file> # discard unstaged changesrn2. git restore --staged <file> # unstage, keep filern3. git restore --source=HEAD~1 <file> # from previous commit
 . git log --onelinern2. git revert <sha>rn3. git pushrn4. Merge commit: git revert -m 1 <merge-sha>
+. git cherry-pick <sha>rn2. git cherry-pick <sha1> <sha2>rn3. Conflicts → fix; git add <file>; git cherry-pick --continue (abort: git cherry-pick --abort)
