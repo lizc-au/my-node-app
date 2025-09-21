@@ -47,3 +47,5 @@
 ## Checkout PR without gh (raw git)rnrn1. git fetch origin pull/<number>/head:pr-<number>rn2. git switch pr-<number>rn3. git branch -D pr-<number> # cleanup
 
 ## Rename branch (local + remote)rnrn1. git branch -m old-name new-namern2. git push origin -u new-namern3. git push origin --delete old-name
+
+## Amend last commit (message or files)rnrn1. git commit --amend -m "New message"rn2. git add <file> ; git commit --amend --no-editrn3. git push --force-with-lease
