@@ -165,13 +165,6 @@ Note: if push to main is blocked by rules, move your local commit to a branch an
 2. `git restore --staged <file>` # unstage, keep file
 3. `git restore --source=HEAD~1 <file>` # from previous commit
 
-## Troubleshoot
-
-1. `git log --oneline`
-2. `git revert <sha>`
-3. `git push`
-4. Merge commit → `git revert -m 1 <merge-sha>`
-
 ## Cross branch commits
 
 1. `git cherry-pick <sha>`
@@ -214,3 +207,181 @@ Note: if push to main is blocked by rules, move your local commit to a branch an
 - `git tag -a vX.Y.Z -m "Release vX.Y.Z"`
 - `git push origin vX.Y.Z`
 - `git push origin --tags` # push all tags
+
+## Fixing merge conflicts (mini-guide)
+
+### 1) Identify conflicted files
+
+```bash
+git status --porcelain=v1
+git diff --name-only --diff-filter=U
+```
+
+### 2) Resolve conflicts in your editor (look for <<<<<<<, =======, >>>>>>>)
+
+### 3) Mark resolved files
+
+```bash
+git add <file>   # repeat per file
+```
+
+### 4) Continue the operation
+
+- If you were merging:
+
+```bash
+git merge --continue
+```
+
+- If you were rebasing:
+
+```bash
+git rebase --continue
+```
+
+- To back out:
+
+```bash
+git merge --abort   # or
+git rebase --abort
+```
+
+### 5) Sanity check
+
+```bash
+npm test
+```
+
+## Rebase vs merge (quick comparison)
+
+### Merge
+
+- Preserves true history; creates a merge commit.
+- Safer for shared branches; easy to revert.
+- Command:
+
+```bash
+git switch main
+git merge feature/my-branch   # or: git merge --no-ff feature/my-branch
+```
+
+### Rebase
+
+- Replays your commits on top of target; linear history.
+- Do not rebase public/shared branches.
+- Commands:
+
+```bash
+git switch feature/my-branch
+git fetch origin
+git rebase origin/main   # or: git rebase -i origin/main
+```
+
+### Common follow-ups
+
+```bash
+# After conflicts:
+git add <file>
+git rebase --continue   # or: git merge --continue
+
+# Abort if needed:
+git rebase --abort      # or: git merge --abort
+```
+
+## Git stash (quick guide)
+
+### Save WIP (tracked only)
+
+```bash
+git stash push -m "wip: message"
+```
+
+### Include untracked files
+
+```bash
+git stash push -u -m "wip: with untracked"
+```
+
+### List stashes
+
+```bash
+git stash list
+```
+
+### Show details for a stash
+
+```bash
+git stash show -p 'stash@{0}'
+```
+
+### Apply (keep stash)
+
+```bash
+git stash apply 'stash@{0}'
+```
+
+### Pop (apply + drop)
+
+```bash
+git stash pop 'stash@{0}'
+```
+
+### Drop a specific stash
+
+```bash
+git stash drop 'stash@{0}'
+```
+
+### Clear all stashes
+
+```bash
+git stash clear
+```
+
+## Troubleshooting: state-of-the-union
+
+### Quick snapshot
+
+```bash
+git status -sb
+git branch -vv
+git log --oneline --decorate --graph --max-count=20
+```
+
+### Conflicts / WIP
+
+```bash
+git diff --name-only --diff-filter=U
+git stash list
+```
+
+### Divergence vs main
+
+```bash
+git fetch --prune --tags
+git rev-list --left-right --count origin/main...HEAD
+```
+
+### What am I running on?
+
+```bash
+git remote -v
+git rev-parse HEAD
+git rev-parse origin/main
+node -v && npm -v
+```
+
+### Sanity
+
+```bash
+npm test
+```
+
+### Undo or revert commits (quick)
+
+Use when you need to back out a commit or merge without rewriting history.
+
+1. Inspect: `git log --oneline`
+2. Revert a commit: `git revert <sha>`
+3. Push: `git push`
+4. Revert a merge commit: `git revert -m 1 <merge-sha>`
