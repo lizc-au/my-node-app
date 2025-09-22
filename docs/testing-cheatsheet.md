@@ -1,6 +1,6 @@
 # Testing Cheat Sheet
 
-## Jest, npm test, coverage, watch.
+## Jest, npm test, coverage, watch
 
 - Verified CI on 2025-09-07
 
